@@ -12,7 +12,6 @@
 		6162FCF91E9357EE00351506 /* BusinessCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6162FCF81E9357EE00351506 /* BusinessCell.swift */; };
 		72118653D5A41C6B74A54A15 /* Pods_letsEat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD5065773162F91F519BD146 /* Pods_letsEat.framework */; };
 		DC03E45A1E68D28D00CEE8BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC03E4591E68D28D00CEE8BA /* AppDelegate.swift */; };
-		DC03E45C1E68D28D00CEE8BA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC03E45B1E68D28D00CEE8BA /* ViewController.swift */; };
 		DC03E45F1E68D28D00CEE8BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC03E45D1E68D28D00CEE8BA /* Main.storyboard */; };
 		DC03E4611E68D28D00CEE8BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC03E4601E68D28D00CEE8BA /* Assets.xcassets */; };
 		DC03E4641E68D28D00CEE8BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC03E4621E68D28D00CEE8BA /* LaunchScreen.storyboard */; };
@@ -33,7 +32,6 @@
 		80F42825CC4B51615FB2BD09 /* Pods-letsEat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-letsEat.release.xcconfig"; path = "Pods/Target Support Files/Pods-letsEat/Pods-letsEat.release.xcconfig"; sourceTree = "<group>"; };
 		DC03E4561E68D28D00CEE8BA /* letsEat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = letsEat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC03E4591E68D28D00CEE8BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DC03E45B1E68D28D00CEE8BA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DC03E45E1E68D28D00CEE8BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DC03E4601E68D28D00CEE8BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC03E4631E68D28D00CEE8BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -119,7 +117,6 @@
 				DC7808771E8C22720005020A /* Model */,
 				DC34322D1E8ADE9C002C2978 /* ViewControllers */,
 				DC03E4591E68D28D00CEE8BA /* AppDelegate.swift */,
-				DC03E45B1E68D28D00CEE8BA /* ViewController.swift */,
 				DC03E45D1E68D28D00CEE8BA /* Main.storyboard */,
 				DC03E4601E68D28D00CEE8BA /* Assets.xcassets */,
 				DC03E4621E68D28D00CEE8BA /* LaunchScreen.storyboard */,
@@ -274,7 +271,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6162FCF41E9338AF00351506 /* YelpClient.swift in Sources */,
-				DC03E45C1E68D28D00CEE8BA /* ViewController.swift in Sources */,
 				DC7808741E8C18650005020A /* mapViewController.swift in Sources */,
 				DCC84F781E8C879E0032BC64 /* signUpViewController.swift in Sources */,
 				DC7808761E8C187B0005020A /* profileViewController.swift in Sources */,

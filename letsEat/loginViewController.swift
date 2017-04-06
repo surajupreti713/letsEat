@@ -48,26 +48,26 @@ class loginViewController: UIViewController {
     
 //signUpButtonPressed function created by Prashant
     
-    @IBAction func signUpButtonPressed(_ sender: Any) {
-        let newUser = PFUser()
-        newUser.username = usernameTextField.text
-        newUser.password = passwordTextField.text
-        newUser.signUpInBackground { (successfulSignin: Bool, signUpError: Error?) in
-            if let signUpError = signUpError {
-                print(signUpError.localizedDescription)
-                let error = signUpError.localizedDescription
-                let alertViewController = UIAlertController(title: "SignUp Error", message: error, preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                alertViewController.addAction(okAction)
-                self.present(alertViewController, animated: true, completion: nil)
-            }
-            else {
-                print("Successfully Signed Up New User")
-                self.performSegue(withIdentifier: "signUpSegue", sender: nil)
-            }
-        }
-        
-    }
+//    @IBAction func signUpButtonPressed(_ sender: Any) {
+//        let newUser = PFUser()
+//        newUser.username = usernameTextField.text
+//        newUser.password = passwordTextField.text
+//        newUser.signUpInBackground { (successfulSignin: Bool, signUpError: Error?) in
+//            if let signUpError = signUpError {
+//                print(signUpError.localizedDescription)
+//                let error = signUpError.localizedDescription
+//                let alertViewController = UIAlertController(title: "SignUp Error", message: error, preferredStyle: .alert)
+//                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+//                alertViewController.addAction(okAction)
+//                self.present(alertViewController, animated: true, completion: nil)
+//            }
+//            else {
+//                print("Successfully Signed Up New User")
+//                self.performSegue(withIdentifier: "signUpSegue", sender: nil)
+//            }
+//        }
+//        
+//    }
     
 
 

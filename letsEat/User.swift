@@ -12,8 +12,8 @@ class User: NSObject {
     
     var username: String?
     var password: String?
-//    var firstName: String?
-//    var lastName: String?
+    var firstName: String?
+    var lastName: String?
     var email: String?
     var userInfo: NSDictionary?
     
