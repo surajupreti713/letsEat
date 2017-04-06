@@ -1,0 +1,6 @@
+framework module Pods_letsEat {
+  umbrella header "Pods-letsEat-umbrella.h"
+
+  export *
+  module * { export * }
+}
