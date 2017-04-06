@@ -13,7 +13,7 @@ Time spent: **X** hours spent in total
 
 - [x] User can create an account and sign in with username and password
 - [x] The current signed in user will be persisted across restarts
-- [ ] user can search resturant 
+- [x] user can search resturant 
 - [ ] User can send invitation with the seleted resturent 
 - [ ] All the users in a certain radiu will get invitation via notification
 - [ ] The invited user can accept the invitation to be the guest
