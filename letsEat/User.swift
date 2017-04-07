@@ -11,16 +11,20 @@ import UIKit
 class User: NSObject {
     
     var username: String?
-    var password: String?
+//    var password: String?
     var firstName: String?
     var lastName: String?
     var email: String?
     var userInfo: NSDictionary?
     
-    init(userInfo: NSDictionary) {
-        self.username = userInfo["username"] as? String
-        self.password = userInfo["password"] as? String
-        self.userInfo = userInfo as NSDictionary
+    init(currentUserInfo: NSDictionary) {
+        self.username = currentUserInfo["username"] as? String
+        // we don't need the password
+//        self.password = currentUserInfo["password"] as? String
+        self.email = currentUserInfo["email"] as? String
+        self.firstName = currentUserInfo["firstName"] as? String
+        self.lastName = currentUserInfo["lastName"] as? String
+        self.userInfo = currentUserInfo as NSDictionary
     }
     
     static var _currentUser: User?
@@ -32,7 +36,7 @@ class User: NSObject {
                 let savedUser = defaults.object(forKey: "savedUser") as? Data
                 if let savedUser = savedUser {
                     let dict = try! JSONSerialization.jsonObject(with: savedUser as Data, options: [])
-                    _currentUser = User(userInfo: dict as! NSDictionary)
+                    _currentUser = User(currentUserInfo: dict as! NSDictionary)
                 }
             }
             return _currentUser

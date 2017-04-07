@@ -25,11 +25,10 @@ class loginViewController: UIViewController {
     }
     
     @IBAction func loginButtonPressed(_ sender: Any) {
-        let userName = usernameTextField.text
+        let username = usernameTextField.text
         let password = passwordTextField.text
-        let userInfo: [String:String] = ["username": userName!, "password": password!]
-        User.currentUser = User(userInfo: userInfo as NSDictionary)
-        PFUser.logInWithUsername(inBackground: userName!, password: password!) { (logedInUser: PFUser?, loginError: Error?) in
+//        let userInfo: [String:String] = ["username": username!, "password": password!]
+        PFUser.logInWithUsername(inBackground: username!, password: password!) { (logedInUser: PFUser?, loginError: Error?) in
             if let loginError = loginError {
                 print(loginError.localizedDescription)
                 let error = loginError.localizedDescription
@@ -41,10 +40,40 @@ class loginViewController: UIViewController {
             else {
                 print("successfully logged In")
                 self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                
+                // Query the user info class in the disk to get the data about
+                // the logging in user.
+                let userInfoQuery = PFQuery(className: "UserInfo")
+                userInfoQuery.whereKey("username", equalTo:"\((username)!)")
+                userInfoQuery.findObjectsInBackground(block: { (userInfoArray: [PFObject]?, error: Error?) in
+                    if let userInfoArray = userInfoArray {
+                        print("userQueryArray: \(userInfoArray)")
+
+                        var currentUserInfo: [String:String] = [:]
+                        currentUserInfo["fistName"] = userInfoArray[0].object(forKey: "firstName") as? String
+                        currentUserInfo["lastName"] = userInfoArray[0].object(forKey: "lastName") as? String
+                        currentUserInfo["username"] = userInfoArray[0].object(forKey: "username") as? String
+                        currentUserInfo["email"] = userInfoArray[0].object(forKey: "email") as? String
+                        
+                        // this will save the logged in user as current user
+                        User.currentUser = User(currentUserInfo: currentUserInfo as NSDictionary)
+                    }
+                    else {
+                        print((error?.localizedDescription)!)
+                    }
+                    
+                })
             }
         }
     }
 
+    
+/*
+ * This bit of code is not need NOW as it is implemented in the signUp Viewcontroller
+ * Not removing it because i might need it later, maybe.
+ *
+ */
+    
     
 //signUpButtonPressed function created by Prashant
     

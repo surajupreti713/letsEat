@@ -76,6 +76,14 @@ class signUpViewController: UIViewController {
                 if success {
                     print("Yay, created a user!")
                     
+                    // saving the sighning in user as current user
+                    var currentUserInfo: [String:String] = [:]
+                    currentUserInfo["username"] = self.usernameTextLabel.text
+                    currentUserInfo["email"] = self.emailTextLabel.text
+                    currentUserInfo["firstName"] = self.firstNameLabel.text
+                    currentUserInfo["lastName"] = self.lastNamelabel.text
+                    User.currentUser = User(currentUserInfo: currentUserInfo as NSDictionary)
+                    
                     // Info of the user to be save for later use
                     let userInfo = PFObject(className: "UserInfo")
                     userInfo["username"] = self.usernameTextLabel.text
@@ -98,7 +106,9 @@ class signUpViewController: UIViewController {
                     })
                     alertController.addAction(alertAction)
                     self.present(alertController, animated: true, completion: nil)
-                } else {
+                }
+                
+                else {
                     print((error?.localizedDescription)!)
                     
                     // alertView that will be displayed if there is an error while singup a new User
