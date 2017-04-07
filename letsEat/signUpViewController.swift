@@ -84,6 +84,7 @@ class signUpViewController: UIViewController {
                     currentUserInfo["lastName"] = self.lastNamelabel.text
                     User.currentUser = User(currentUserInfo: currentUserInfo as NSDictionary)
                     
+                    
                     // Info of the user to be save for later use
                     let userInfo = PFObject(className: "UserInfo")
                     userInfo["username"] = self.usernameTextLabel.text

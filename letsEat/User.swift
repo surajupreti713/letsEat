@@ -55,5 +55,8 @@ class User: NSObject {
             defaults.synchronize()
         }
     }
+    
+    
+    
 
 }

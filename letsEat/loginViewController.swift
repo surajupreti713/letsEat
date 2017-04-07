@@ -27,7 +27,6 @@ class loginViewController: UIViewController {
     @IBAction func loginButtonPressed(_ sender: Any) {
         let username = usernameTextField.text
         let password = passwordTextField.text
-//        let userInfo: [String:String] = ["username": username!, "password": password!]
         PFUser.logInWithUsername(inBackground: username!, password: password!) { (logedInUser: PFUser?, loginError: Error?) in
             if let loginError = loginError {
                 print(loginError.localizedDescription)
@@ -47,14 +46,16 @@ class loginViewController: UIViewController {
                 userInfoQuery.whereKey("username", equalTo:"\((username)!)")
                 userInfoQuery.findObjectsInBackground(block: { (userInfoArray: [PFObject]?, error: Error?) in
                     if let userInfoArray = userInfoArray {
-                        print("userQueryArray: \(userInfoArray)")
+//                        print("userQueryArray: \(userInfoArray)")
 
                         var currentUserInfo: [String:String] = [:]
-                        currentUserInfo["fistName"] = userInfoArray[0].object(forKey: "firstName") as? String
+                        currentUserInfo["firstName"] = userInfoArray[0].object(forKey: "firstName") as? String
                         currentUserInfo["lastName"] = userInfoArray[0].object(forKey: "lastName") as? String
                         currentUserInfo["username"] = userInfoArray[0].object(forKey: "username") as? String
                         currentUserInfo["email"] = userInfoArray[0].object(forKey: "email") as? String
+
                         
+//                        let userCurrent = currentUserInfo as NSDictionary
                         // this will save the logged in user as current user
                         User.currentUser = User(currentUserInfo: currentUserInfo as NSDictionary)
                     }
