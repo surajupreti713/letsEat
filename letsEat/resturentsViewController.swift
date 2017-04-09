@@ -76,6 +76,26 @@ class resturentsViewController: UIViewController, UITableViewDataSource, UITable
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "mapDisplay" {                               //segue for showing map
+            let mapViewController = segue.destination as! mapViewController
+            let indexPath = tableView.indexPath(for: sender as! UITableViewCell)
+            mapViewController.business = businesses[(indexPath?.row)!]
+        }
+        
+        //        if (segue.identifier == "detailedView"){
+        //            // Get the new view controller using segue.destinationViewController.
+        //            // Pass the selected object to the new view controller.
+        //            let cell = sender as! BusinessCell
+        //            let indexPath = tableView.indexPath(for: cell)
+        //            let business = businesses![(indexPath?.row)!]
+        //
+        //            let detailViewController = segue.destination as! DetailViewController
+        //            detailViewController.business = business
+        //        }
+    }
+
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -273,21 +273,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Map" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FPT-Kv-MgK">
-                                <rect key="frame" x="157" y="212" width="34" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="AIY-R6-t6H">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="AIY-R6-t6H" firstAttribute="bottom" secondItem="DDA-UL-JXD" secondAttribute="top" id="Js9-d5-ktF"/>
+                            <constraint firstAttribute="trailing" secondItem="AIY-R6-t6H" secondAttribute="trailing" id="XKp-xi-p9g"/>
+                            <constraint firstItem="AIY-R6-t6H" firstAttribute="leading" secondItem="Crj-Af-XPL" secondAttribute="leading" id="uMY-qY-dun"/>
+                            <constraint firstItem="AIY-R6-t6H" firstAttribute="top" secondItem="N2x-gd-5Cw" secondAttribute="bottom" id="udn-hw-IlA"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" selectedImage="map" id="dMg-cM-xtB"/>
+                    <connections>
+                        <outlet property="mapView" destination="AIY-R6-t6H" id="a0e-z0-YjN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MsO-Mv-IEv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2422" y="364"/>
+            <point key="canvasLocation" x="3373.5999999999999" y="546.47676161919048"/>
         </scene>
         <!--Restaurants-->
         <scene sceneID="qbF-OB-w1O">
@@ -375,6 +380,7 @@
                                             <outlet property="ratingImageView" destination="9CO-LR-6y7" id="UxD-WM-gwO"/>
                                             <outlet property="reviewsCountLabel" destination="LZj-8c-QSg" id="n0v-Ph-ZVG"/>
                                             <outlet property="thumbImageView" destination="LMo-xZ-psb" id="2TT-E7-U5O"/>
+                                            <segue destination="Gbw-f4-4Ji" kind="show" identifier="mapDisplay" id="zC7-ec-RpP"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -474,5 +480,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="4ax-rB-PzF"/>
+        <segue reference="zC7-ec-RpP"/>
     </inferredMetricsTieBreakers>
 </document>
