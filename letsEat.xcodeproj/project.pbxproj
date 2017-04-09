@@ -17,6 +17,7 @@
 		DC03E4641E68D28D00CEE8BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC03E4621E68D28D00CEE8BA /* LaunchScreen.storyboard */; };
 		DC0FAFFC1E8DC2BB0066DF86 /* NotificationKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0FAFFB1E8DC2BB0066DF86 /* NotificationKeys.swift */; };
 		DC34322F1E8ADEAE002C2978 /* loginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC34322E1E8ADEAE002C2978 /* loginViewController.swift */; };
+		DC3C1BBA1E9AB1CC00DF4D24 /* NotificationSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3C1BB91E9AB1CC00DF4D24 /* NotificationSender.swift */; };
 		DC7808721E8C182D0005020A /* resturentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7808711E8C182D0005020A /* resturentsViewController.swift */; };
 		DC7808741E8C18650005020A /* mapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7808731E8C18650005020A /* mapViewController.swift */; };
 		DC7808761E8C187B0005020A /* profileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7808751E8C187B0005020A /* profileViewController.swift */; };
@@ -39,6 +40,7 @@
 		DC03E4651E68D28D00CEE8BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC0FAFFB1E8DC2BB0066DF86 /* NotificationKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationKeys.swift; sourceTree = "<group>"; };
 		DC34322E1E8ADEAE002C2978 /* loginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginViewController.swift; sourceTree = "<group>"; };
+		DC3C1BB91E9AB1CC00DF4D24 /* NotificationSender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationSender.swift; sourceTree = "<group>"; };
 		DC7808711E8C182D0005020A /* resturentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = resturentsViewController.swift; sourceTree = "<group>"; };
 		DC7808731E8C18650005020A /* mapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapViewController.swift; sourceTree = "<group>"; };
 		DC7808751E8C187B0005020A /* profileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = profileViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				6162FCF31E9338AF00351506 /* YelpClient.swift */,
+				DC3C1BB91E9AB1CC00DF4D24 /* NotificationSender.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -278,6 +281,7 @@
 				DCC84F781E8C879E0032BC64 /* signUpViewController.swift in Sources */,
 				DC7808761E8C187B0005020A /* profileViewController.swift in Sources */,
 				6162FCF91E9357EE00351506 /* BusinessCell.swift in Sources */,
+				DC3C1BBA1E9AB1CC00DF4D24 /* NotificationSender.swift in Sources */,
 				DC03E45A1E68D28D00CEE8BA /* AppDelegate.swift in Sources */,
 				DC34322F1E8ADEAE002C2978 /* loginViewController.swift in Sources */,
 				DC0FAFFC1E8DC2BB0066DF86 /* NotificationKeys.swift in Sources */,

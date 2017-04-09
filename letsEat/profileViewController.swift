@@ -26,9 +26,32 @@ class profileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         let currentUser = User.currentUser
         nameLabel.text = "\((currentUser?.firstName)!) \((currentUser?.lastName)!)"
-        // temprary image just for testing
+        
         let tempProfileImage: UIImage = profileImage ?? UIImage(named: "test_profile_pic")!
         profileImageLabel.image = tempProfileImage
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setProfilePicture()
+    }
+   /*
+    * TODO: Don't forget to come back to this part after you are
+    *       done with the rest of the app.
+    *       This is not that important to the funcationality of the app.
+    *       just make sure to come back after your are done.
+    */
+ 
+    
+    func setProfilePicture() {
+        if (profileImage == nil) {
+            let profilePictureQuery = PFQuery(className: "ProfilePicture_\((User.currentUser?.username)!)")
+            profilePictureQuery.whereKeyExists("image")
+            profilePictureQuery.findObjectsInBackground(block: { (photoArray: [PFObject]?, error: Error?) in
+                if let photoArray = photoArray {
+                    print(photoArray)
+                }
+            })
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -85,6 +108,7 @@ class profileViewController: UIViewController, UIImagePickerControllerDelegate, 
         if let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
             profileImage = editedImage
             profileImageLabel.image = editedImage
+            // make sure you delete the older profile picture before or after saving the new one.
             SaveProfilePictureToDisk.saveProfilePicture(profilePicture: profileImage)
             dismiss(animated: true, completion: nil)
         }
@@ -94,6 +118,4 @@ class profileViewController: UIViewController, UIImagePickerControllerDelegate, 
             self.present(alertViewController, animated: true, completion: nil)
         }
     }
-    
-    
 }

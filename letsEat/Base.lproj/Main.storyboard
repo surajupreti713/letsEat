@@ -304,7 +304,8 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="115" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="24a-dg-rpy">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="624"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="0.95920989396061429" blue="0.95071606563349775" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="separatorColor" red="1" green="0.96223515709004181" blue="0.92947080958211581" alpha="0.51348458904109584" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BusinessCell" rowHeight="115" id="Nbo-kc-Di4" customClass="BusinessCell" customModule="letsEat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="115"/>
@@ -365,6 +366,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="0.92291453977952953" blue="0.9210858338398622" alpha="0.51348458904109584" colorSpace="custom" customColorSpace="displayP3"/>
                                         <connections>
                                             <outlet property="addressLabel" destination="E9x-MS-bUA" id="gOs-IN-c50"/>
                                             <outlet property="categoriesLabel" destination="QXF-Ms-SdR" id="Juc-xV-2yp"/>
@@ -378,7 +380,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.99153611176514733" green="0.99487209717496916" blue="1" alpha="0.79759738869863017" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <navigationItem key="navigationItem" title="Restaurants" id="fy8-D3-Can"/>
                     <connections>
