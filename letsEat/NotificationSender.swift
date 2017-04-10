@@ -11,8 +11,6 @@ import Parse
 
 class NotificationSender: NSObject {
     
-    
-    
     class func sendRequest(to: String, from: String) {
         getObjectId(invitingUser: to, success: { (objectId: String) in
             let notifyQuery = PFQuery(className: "invitation_by_\(to)")
@@ -54,6 +52,7 @@ class NotificationSender: NSObject {
         query.whereKey("requested", equalTo: false)
         query.order(byDescending: "createdAt")
         query.limit = 1
+        
         /*
          *TODO: Try and catch this warning and desplay some message
          *      "Warning: `BFTask` caught an exception in the continuation block."

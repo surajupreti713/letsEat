@@ -275,9 +275,9 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2422" y="1039"/>
+            <point key="canvasLocation" x="2478" y="1281"/>
         </scene>
-        <!--Map-->
+        <!--Map View Controller-->
         <scene sceneID="Xpj-tL-MMf">
             <objects>
                 <viewController id="Gbw-f4-4Ji" customClass="mapViewController" customModule="letsEat" customModuleProvider="target" sceneMemberID="viewController">
@@ -301,14 +301,20 @@
                             <constraint firstItem="AIY-R6-t6H" firstAttribute="top" secondItem="N2x-gd-5Cw" secondAttribute="bottom" id="udn-hw-IlA"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" selectedImage="map" id="dMg-cM-xtB"/>
+                    <navigationItem key="navigationItem" id="Oh6-bj-GLq">
+                        <barButtonItem key="rightBarButtonItem" title="Update Location" id="ZxI-nJ-Wvx">
+                            <connections>
+                                <action selector="getCurrentLocation:" destination="Gbw-f4-4Ji" id="fNc-i4-bsO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="mapView" destination="AIY-R6-t6H" id="a0e-z0-YjN"/>
+                        <outlet property="mapView" destination="AIY-R6-t6H" id="Mft-fq-Qhr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MsO-Mv-IEv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3246" y="469"/>
+            <point key="canvasLocation" x="3622" y="466"/>
         </scene>
         <!--Restaurants-->
         <scene sceneID="qbF-OB-w1O">
@@ -396,7 +402,7 @@
                                             <outlet property="ratingImageView" destination="9CO-LR-6y7" id="UxD-WM-gwO"/>
                                             <outlet property="reviewsCountLabel" destination="LZj-8c-QSg" id="n0v-Ph-ZVG"/>
                                             <outlet property="thumbImageView" destination="LMo-xZ-psb" id="2TT-E7-U5O"/>
-                                            <segue destination="Gbw-f4-4Ji" kind="show" identifier="mapDisplay" id="zC7-ec-RpP"/>
+                                            <segue destination="0Mr-9u-Ihf" kind="show" id="k50-Wn-XZ9"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -411,7 +417,79 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aTa-IR-ECl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3247" y="-234"/>
+            <point key="canvasLocation" x="3246" y="-287"/>
+        </scene>
+        <!--Restaurant Details View Controller-->
+        <scene sceneID="z8T-dy-gqt">
+            <objects>
+                <viewController id="JC0-jH-yHO" customClass="RestaurantDetailsViewController" customModule="letsEat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ehZ-Dj-6mY"/>
+                        <viewControllerLayoutGuide type="bottom" id="c0m-Ib-dYx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fvn-Ap-BZw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hd2-g7-23J">
+                                <rect key="frame" x="8" y="151" width="164" height="143"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jhj-Pk-ah1">
+                                <rect key="frame" x="8" y="86" width="343" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJW-BZ-kWc">
+                                <rect key="frame" x="180" y="163" width="179" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="catagory" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6C7-cw-gkY">
+                                <rect key="frame" x="180" y="201" width="179" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kt2-YH-l81">
+                                <rect key="frame" x="180" y="238" width="153" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vUn-rE-xmV">
+                                <rect key="frame" x="112" y="352" width="134" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Organize"/>
+                                <connections>
+                                    <action selector="organizeButtonPressed:" destination="JC0-jH-yHO" eventType="touchUpInside" id="5vE-we-mD9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="I00-GU-Ksx">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="DFb-6e-6cj">
+                            <connections>
+                                <action selector="cancelButtonPressed:" destination="JC0-jH-yHO" id="UxF-kl-yCE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addressLabel" destination="nJW-BZ-kWc" id="S3K-ye-COz"/>
+                        <outlet property="categorylabel" destination="6C7-cw-gkY" id="ICr-IV-PLR"/>
+                        <outlet property="imageView" destination="hd2-g7-23J" id="VpM-T4-7w6"/>
+                        <outlet property="nameLabel" destination="Jhj-Pk-ah1" id="ZPN-ZO-aRT"/>
+                        <outlet property="ratingImageView" destination="kt2-YH-l81" id="PhY-iA-G35"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J9O-Ak-HhA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4944.8000000000002" y="-282.00899550224892"/>
         </scene>
         <!--tabBarController-->
         <scene sceneID="s23-kK-9Ga">
@@ -424,7 +502,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="N9P-uO-Mum" kind="relationship" relationship="viewControllers" id="q7J-6j-9Nf"/>
-                        <segue destination="Gbw-f4-4Ji" kind="relationship" relationship="viewControllers" id="AUD-JN-qeg"/>
+                        <segue destination="BIP-5B-Tri" kind="relationship" relationship="viewControllers" id="AUD-JN-qeg"/>
                         <segue destination="6Yq-Au-NxJ" kind="relationship" relationship="viewControllers" id="0mf-Ut-lvo"/>
                     </connections>
                 </tabBarController>
@@ -488,6 +566,43 @@
             </objects>
             <point key="canvasLocation" x="2422" y="-287"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Ne2-La-0sc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0Mr-9u-Ihf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jsp-ru-tM6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="JC0-jH-yHO" kind="relationship" relationship="rootViewController" id="GWU-db-fGh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jeq-md-TSK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4149.6000000000004" y="-282.00899550224892"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="JRV-dx-K8N">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BIP-5B-Tri" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Map" selectedImage="map" id="dMg-cM-xtB"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Psj-v5-mGi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Gbw-f4-4Ji" kind="relationship" relationship="rootViewController" id="zYY-hZ-c3k"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RLC-2x-jPX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2864.8000000000002" y="466.41679160419795"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Profile" width="32" height="32"/>
@@ -496,6 +611,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="4ax-rB-PzF"/>
-        <segue reference="AUD-JN-qeg"/>
     </inferredMetricsTieBreakers>
 </document>

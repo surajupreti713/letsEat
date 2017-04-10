@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>used to get the current location of the user</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Used to import images that will be used as a profile images for the user.</string>
 	<key>NSMicrophoneUsageDescription</key>
