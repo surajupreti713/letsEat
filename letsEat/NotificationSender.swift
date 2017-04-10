@@ -11,6 +11,8 @@ import Parse
 
 class NotificationSender: NSObject {
     
+    
+    // this method is called everytime a user requests to be at an invitation.
     class func sendRequest(to: String, from: String) {
         getObjectId(invitingUser: to, success: { (objectId: String) in
             let notifyQuery = PFQuery(className: "invitation")
@@ -32,6 +34,8 @@ class NotificationSender: NSObject {
         }
     }
     
+    
+    // create an invitation in the disk as an object which will later be queried in the MapView and presented.
     class func createInviation() {
         let invitation = PFObject(className: "invitation")
         invitation["host"] = "\((User.currentUser?.username)!)"

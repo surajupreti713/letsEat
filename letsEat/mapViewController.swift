@@ -21,9 +21,12 @@ class mapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
+        
         getInvitationsFromDisk()
     }
     
+    // was intitally gonna user this function to get the current location of user,
+    // but iphone amulator in mac always shows San Fransesco while get location from gps.
     @IBAction func getCurrentLocation(_ sender: Any) {
             
             let mapCenter = CLLocationCoordinate2D(latitude: 38.936001, longitude: -77.037916)
@@ -33,6 +36,7 @@ class mapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             mapView.setRegion(region, animated: true)
     }
     
+    // this method gets all the invitation from the database created by, NotificationSender.createInvitation.
     func getInvitationsFromDisk() {
         let invitationQuery = PFQuery(className: "invitation")
         invitationQuery.whereKey("requested", equalTo: false)
@@ -48,6 +52,9 @@ class mapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
     
+    
+    // this function loops through all the annotation in the annotation array 
+    // and pin them in the map.
     func displayInvitationsAnnotations() {
         if let invitationArray = invitationArray {
             for invitation in invitationArray {
@@ -58,6 +65,16 @@ class mapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
                 annotation.coordinate = locationCoordinate
                 annotation.title = invitation.object(forKey: "host") as? String
                 mapView.addAnnotation(annotation)
+            }
+        }
+    }
+    
+    
+    // this function is called after the annotation is tapped
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        if let annotation = view.annotation {
+            if let title = annotation.title! {
+                print("Tapped \(title) pin")
             }
         }
     }
