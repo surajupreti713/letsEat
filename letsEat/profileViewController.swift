@@ -31,9 +31,13 @@ class profileViewController: UIViewController, UIImagePickerControllerDelegate, 
         profileImageLabel.image = tempProfileImage
     }
     
+    
+    // this will be called everytime the view appears, this is to update the profile 
+    // picture.
     override func viewWillAppear(_ animated: Bool) {
-        setProfilePicture()
+//        setProfilePicture()
     }
+    
    /*
     * TODO: Don't forget to come back to this part after you are
     *       done with the rest of the app.
@@ -51,6 +55,9 @@ class profileViewController: UIViewController, UIImagePickerControllerDelegate, 
                     print(photoArray)
                 }
             })
+        }
+        else {
+            profileImageLabel.image = profileImage
         }
     }
 
@@ -73,6 +80,9 @@ class profileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     
     @IBAction func profilePictureTapped(_ sender: UITapGestureRecognizer) {
+        
+//        NotificationSender.send(to: (User.currentUser?.username)!, from: (User.currentUser?.username)!)
+        
         let alertViewController = UIAlertController(title: "Choose Image Source", message: nil, preferredStyle: .actionSheet)
         alertViewController.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (_) in
             self.openCamera()
@@ -118,4 +128,13 @@ class profileViewController: UIViewController, UIImagePickerControllerDelegate, 
             self.present(alertViewController, animated: true, completion: nil)
         }
     }
+    
+    @IBAction func inviteButton(_ sender: Any) {
+        NotificationSender.createInviation()
+    }
+    
+    @IBAction func sendRequest(_ sender: Any) {
+        NotificationSender.sendRequest(to: (User.currentUser?.username)!, from: (User.currentUser?.username)!)
+    }
+    
 }

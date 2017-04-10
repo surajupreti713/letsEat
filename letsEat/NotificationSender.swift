@@ -11,17 +11,25 @@ import Parse
 
 class NotificationSender: NSObject {
     
-    class func send(to: String, from: String) {
-        let notifyQuery = PFQuery(className: "invitation_by_\(to)")
-        notifyQuery.getObjectInBackground(withId: "Id_\(to)") { (invitation: PFObject?, error: Error?) in
-            if let invitation = invitation {
-                invitation["requested"] = true
-                invitation["guest"] = "\((User.currentUser?.username)!)"
-                invitation.saveInBackground()
+    
+    
+    class func sendRequest(to: String, from: String) {
+        getObjectId(invitingUser: to, success: { (objectId: String) in
+            let notifyQuery = PFQuery(className: "invitation_by_\(to)")
+            notifyQuery.getObjectInBackground(withId: "\(objectId)") { (invitation: PFObject?, error: Error?) in
+                if let invitation = invitation {
+                    invitation["requested"] = true
+                    invitation["guest"] = "\((User.currentUser?.username)!)"
+                    invitation.saveInBackground()
+                    print("*****")
+                    print("request send")
+                }
+                else {
+                    print("error while sending request: \((error?.localizedDescription)!)")
+                }
             }
-            else {
-                print("error_while_sending_request: \((error?.localizedDescription)!)")
-            }
+        }) { (error: Error) in
+            print("error while getting the objectId: \(error.localizedDescription)")
         }
     }
     
@@ -29,16 +37,39 @@ class NotificationSender: NSObject {
         let invitation = PFObject(className: "invitation_by_\((User.currentUser?.username)!)")
         invitation["requested"] = false
         invitation["guest"] = "none" // username
-        invitation.objectId = "Id_\((User.currentUser?.username)!)"
         invitation.saveInBackground { (success :Bool, error: Error?) in
             if let error = error {
-                print("error: \(error.localizedDescription)")
+                print("error creating invitation: \(error.localizedDescription)")
             }
-            
             else {
                 print("invitation successfully posted")
             }
         }
+    }
+    
+    // this function takes in a closure and call then with objectId passed as parameter.
+    class func getObjectId(invitingUser: String, success: @escaping (String) -> (), failure: @escaping (Error)->()) {
+        print("invitation successfully posted")
+        let query = PFQuery(className: "invitation_by_\((invitingUser))")
+        query.whereKey("requested", equalTo: false)
+        query.order(byDescending: "createdAt")
+        query.limit = 1
+        /*
+         *TODO: Try and catch this warning and desplay some message
+         *      "Warning: `BFTask` caught an exception in the continuation block."
+         *      "This behavior is discouraged and will be removed in a future release. "
+         *      "Caught Exception: *** -[__NSArray0 objectAtIndex:]: index 0 beyond bounds for empty NSArray"
+         *      This warning occured when the invitation object's request key already has value TRUE.
+         */
+        
+        query.findObjectsInBackground(block: { (respondArray: [PFObject]?, error: Error?) in
+            if let error = error {
+                failure(error)
+            }
+            else {
+                success((respondArray?[0].objectId)!)
+            }
+        })
     }
 
 }
