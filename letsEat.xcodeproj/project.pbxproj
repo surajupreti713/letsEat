@@ -22,6 +22,7 @@
 		DC3C1BBD1E9B199000DF4D24 /* RestaurantDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3C1BBC1E9B199000DF4D24 /* RestaurantDetailsViewController.swift */; };
 		DC3C1BBF1E9B4B1F00DF4D24 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3C1BBE1E9B4B1F00DF4D24 /* MapKit.framework */; };
 		DC3C1BC11E9B4E9C00DF4D24 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC3C1BC01E9B4E9C00DF4D24 /* CoreLocation.framework */; };
+		DC3C1BC31E9C225900DF4D24 /* DetailAnnotationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3C1BC21E9C225900DF4D24 /* DetailAnnotationViewController.swift */; };
 		DC7808721E8C182D0005020A /* resturentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7808711E8C182D0005020A /* resturentsViewController.swift */; };
 		DC7808741E8C18650005020A /* mapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7808731E8C18650005020A /* mapViewController.swift */; };
 		DC7808761E8C187B0005020A /* profileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7808751E8C187B0005020A /* profileViewController.swift */; };
@@ -49,6 +50,7 @@
 		DC3C1BBC1E9B199000DF4D24 /* RestaurantDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantDetailsViewController.swift; sourceTree = "<group>"; };
 		DC3C1BBE1E9B4B1F00DF4D24 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		DC3C1BC01E9B4E9C00DF4D24 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		DC3C1BC21E9C225900DF4D24 /* DetailAnnotationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailAnnotationViewController.swift; sourceTree = "<group>"; };
 		DC7808711E8C182D0005020A /* resturentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = resturentsViewController.swift; sourceTree = "<group>"; };
 		DC7808731E8C18650005020A /* mapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapViewController.swift; sourceTree = "<group>"; };
 		DC7808751E8C187B0005020A /* profileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = profileViewController.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				DC7808751E8C187B0005020A /* profileViewController.swift */,
 				DCC84F771E8C879E0032BC64 /* signUpViewController.swift */,
 				DC3C1BBC1E9B199000DF4D24 /* RestaurantDetailsViewController.swift */,
+				DC3C1BC21E9C225900DF4D24 /* DetailAnnotationViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				6162FCF61E9354F500351506 /* Business.swift in Sources */,
 				61C0A5FD1E9ADBEA00CE7817 /* Restaurant.swift in Sources */,
 				DC7808721E8C182D0005020A /* resturentsViewController.swift in Sources */,
+				DC3C1BC31E9C225900DF4D24 /* DetailAnnotationViewController.swift in Sources */,
 				DC7808791E8C22A00005020A /* User.swift in Sources */,
 				DC3C1BBD1E9B199000DF4D24 /* RestaurantDetailsViewController.swift in Sources */,
 				DCD5F1D51E982C7D0012CC0F /* SaveProfilePictureToDisk.swift in Sources */,

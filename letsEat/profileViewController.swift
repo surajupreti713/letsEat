@@ -129,10 +129,6 @@ class profileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
-    @IBAction func inviteButton(_ sender: Any) {
-        NotificationSender.createInviation()
-    }
-    
     @IBAction func sendRequest(_ sender: Any) {
         NotificationSender.sendRequest(to: (User.currentUser?.username)!, from: (User.currentUser?.username)!)
     }

@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -194,89 +193,6 @@
             </objects>
             <point key="canvasLocation" x="813.60000000000002" y="831.63418290854577"/>
         </scene>
-        <!--Item 3-->
-        <scene sceneID="fE7-CA-uBd">
-            <objects>
-                <viewController id="hrR-Um-I9P" userLabel="Item 3" customClass="profileViewController" customModule="letsEat" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="eh8-P0-x2J"/>
-                        <viewControllerLayoutGuide type="bottom" id="Cke-N2-cIv"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="sme-xG-0E4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E4H-K6-n0f">
-                                <rect key="frame" x="118" y="90" width="138" height="119"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="119" id="IWx-yR-Cvc"/>
-                                    <constraint firstAttribute="width" constant="138" id="MpO-E0-Hy7"/>
-                                </constraints>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="N0T-ij-R6I" appends="YES" id="PEV-Tp-RgH"/>
-                                </connections>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prashant " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uy1-NZ-pSp">
-                                <rect key="frame" x="151" y="228" width="73" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDa-kL-ena">
-                                <rect key="frame" x="158" y="399" width="59" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                <state key="normal" title="LogOut">
-                                    <color key="titleColor" red="1" green="0.28109243876589474" blue="0.29546570680953932" alpha="0.52020012842465757" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                                <connections>
-                                    <action selector="logoutButtonPressed:" destination="hrR-Um-I9P" eventType="touchUpInside" id="a4n-oc-aZd"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="elp-1t-qgL">
-                                <rect key="frame" x="169" y="451" width="37" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="invite"/>
-                                <connections>
-                                    <action selector="inviteButton:" destination="hrR-Um-I9P" eventType="touchUpInside" id="aiC-2B-TbH"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xne-S6-huh">
-                                <rect key="frame" x="161" y="521" width="53" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="request"/>
-                                <connections>
-                                    <action selector="sendRequest:" destination="hrR-Um-I9P" eventType="touchUpInside" id="yuo-kO-vcN"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="E4H-K6-n0f" firstAttribute="leading" secondItem="sme-xG-0E4" secondAttribute="leadingMargin" constant="102" id="7Tc-XE-H95"/>
-                            <constraint firstItem="uy1-NZ-pSp" firstAttribute="centerX" secondItem="sme-xG-0E4" secondAttribute="centerX" id="829-fG-pZx"/>
-                            <constraint firstItem="uy1-NZ-pSp" firstAttribute="top" secondItem="E4H-K6-n0f" secondAttribute="bottom" constant="19" id="ESv-Eb-6UK"/>
-                            <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="uy1-NZ-pSp" secondAttribute="trailing" constant="135" id="TAd-Xt-dec"/>
-                            <constraint firstItem="E4H-K6-n0f" firstAttribute="top" secondItem="eh8-P0-x2J" secondAttribute="bottom" constant="26" id="aax-Lr-k2y"/>
-                            <constraint firstItem="uy1-NZ-pSp" firstAttribute="leading" relation="lessThanOrEqual" secondItem="sme-xG-0E4" secondAttribute="leadingMargin" constant="135" id="kw9-Va-5hZ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="E4H-K6-n0f" secondAttribute="trailing" constant="103" id="pcJ-Bq-Zau"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Profile" id="Hmb-Sr-rWG"/>
-                    <connections>
-                        <outlet property="nameLabel" destination="uy1-NZ-pSp" id="9Pq-dZ-H5g"/>
-                        <outlet property="profileImageLabel" destination="E4H-K6-n0f" id="AXl-c2-sdD"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bPM-N0-ReH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="N0T-ij-R6I">
-                    <connections>
-                        <action selector="profilePictureTapped:" destination="hrR-Um-I9P" id="M87-rx-FJS"/>
-                    </connections>
-                </tapGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="2478" y="1281"/>
-        </scene>
         <!--Map View Controller-->
         <scene sceneID="Xpj-tL-MMf">
             <objects>
@@ -310,11 +226,42 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="AIY-R6-t6H" id="Mft-fq-Qhr"/>
+                        <segue destination="Wae-rQ-VZW" kind="show" identifier="detailsOfInvitaionFromAnnotation" id="YUV-sm-GYC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MsO-Mv-IEv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3622" y="466"/>
+        </scene>
+        <!--Detail Annotation View Controller-->
+        <scene sceneID="gYe-2p-PtL">
+            <objects>
+                <viewController id="Wae-rQ-VZW" customClass="DetailAnnotationViewController" customModule="letsEat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rwj-nQ-pW9"/>
+                        <viewControllerLayoutGuide type="bottom" id="moK-sg-WSg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="A1y-Mx-8LJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QhY-Zg-Kda">
+                                <rect key="frame" x="34" y="293" width="307" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="hostNameLabel" destination="QhY-Zg-Kda" id="0eU-Jl-XX0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Qa-vV-pjg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4428" y="465.51724137931041"/>
         </scene>
         <!--Restaurants-->
         <scene sceneID="qbF-OB-w1O">
@@ -539,9 +486,6 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="hrR-Um-I9P" kind="relationship" relationship="rootViewController" id="3ie-qe-SPw"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="REw-w6-2k5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -36,13 +36,13 @@ class NotificationSender: NSObject {
     
     
     // create an invitation in the disk as an object which will later be queried in the MapView and presented.
-    class func createInviation() {
+    class func createInviation(business: Business) {
         let invitation = PFObject(className: "invitation")
         invitation["host"] = "\((User.currentUser?.username)!)"
         invitation["requested"] = false
         invitation["guest"] = "none" // username
-        invitation["longitude"] = "-77.037916"
-        invitation["latitude"] = "38.936001"
+        invitation["longitude"] = "\((business.longitude)!)"
+        invitation["latitude"] = "\((business.latitude)!)"
         invitation.saveInBackground { (success :Bool, error: Error?) in
             if let error = error {
                 print("error creating invitation: \(error.localizedDescription)")

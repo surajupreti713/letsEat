@@ -18,6 +18,8 @@ class mapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 //    var business: Business!
     var invitationArray: [PFObject]?
     
+    var eventHost: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
@@ -58,10 +60,11 @@ class mapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     func displayInvitationsAnnotations() {
         if let invitationArray = invitationArray {
             for invitation in invitationArray {
-                let latitude = Double((invitation.object(forKey: "latitude") as? String)!)
-                let longitude = Double((invitation.object(forKey: "longitude") as? String)!)
+                let latitude = Double((invitation.object(forKey: "latitude") as? String)!)!
+                let longitude = Double((invitation.object(forKey: "longitude") as? String)!)!
+                print("latitude: \(String(describing: latitude)) \n longitude: \(String(describing: longitude))")
                 let annotation = MKPointAnnotation()
-                let locationCoordinate = CLLocationCoordinate2D(latitude: latitude! , longitude: longitude!)
+                let locationCoordinate = CLLocationCoordinate2D(latitude: latitude , longitude: longitude)
                 annotation.coordinate = locationCoordinate
                 annotation.title = invitation.object(forKey: "host") as? String
                 mapView.addAnnotation(annotation)
@@ -73,11 +76,20 @@ class mapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
     // this function is called after the annotation is tapped
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         if let annotation = view.annotation {
-            if let title = annotation.title! {
-                print("Tapped \(title) pin")
+            if let host = annotation.title! {
+                print("Tapped \(host) pin")
+                self.eventHost = host
+                performSegue(withIdentifier: "detailsOfInvitaionFromAnnotation", sender: nil)
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let viewController = segue.destination as! DetailAnnotationViewController
+        viewController.host = self.eventHost
+    }
+    
+    
     
 //    func initLocation() {
 //        self.locationManager.requestAlwaysAuthorization()
