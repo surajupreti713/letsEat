@@ -37,6 +37,6 @@ class RestaurantDetailsViewController: UIViewController {
     }
     
     @IBAction func organizeButtonPressed(_ sender: Any) {
-        
+        NotificationSender.createInviation()
     }
 }

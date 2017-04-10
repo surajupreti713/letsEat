@@ -13,7 +13,8 @@ class NotificationSender: NSObject {
     
     class func sendRequest(to: String, from: String) {
         getObjectId(invitingUser: to, success: { (objectId: String) in
-            let notifyQuery = PFQuery(className: "invitation_by_\(to)")
+            let notifyQuery = PFQuery(className: "invitation")
+            notifyQuery.whereKey("host", equalTo: to)
             notifyQuery.getObjectInBackground(withId: "\(objectId)") { (invitation: PFObject?, error: Error?) in
                 if let invitation = invitation {
                     invitation["requested"] = true
@@ -32,9 +33,12 @@ class NotificationSender: NSObject {
     }
     
     class func createInviation() {
-        let invitation = PFObject(className: "invitation_by_\((User.currentUser?.username)!)")
+        let invitation = PFObject(className: "invitation")
+        invitation["host"] = "\((User.currentUser?.username)!)"
         invitation["requested"] = false
         invitation["guest"] = "none" // username
+        invitation["longitude"] = "-77.037916"
+        invitation["latitude"] = "38.936001"
         invitation.saveInBackground { (success :Bool, error: Error?) in
             if let error = error {
                 print("error creating invitation: \(error.localizedDescription)")
