@@ -37,6 +37,17 @@ class RestaurantDetailsViewController: UIViewController {
     }
     
     @IBAction func organizeButtonPressed(_ sender: Any) {
-        NotificationSender.createInviation(business: business!)
+        NotificationSender.createInviation(business: business!, successfull: { 
+            let alertViewController = UIAlertController(title: "Way to Go", message: "Invitation successfully Posted", preferredStyle: .alert)
+            alertViewController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { (_) in
+                self.dismiss(animated: true, completion: nil)
+            }))
+            self.present(alertViewController, animated: true, completion: nil)
+        }) { (error: Error) in
+            let alertViewController = UIAlertController(title: "Oops!", message: "\(error.localizedDescription)", preferredStyle: .alert)
+            alertViewController.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            self.present(alertViewController, animated: true, completion: nil)
+        }
+        
     }
 }
