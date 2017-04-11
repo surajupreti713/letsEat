@@ -40,6 +40,6 @@ class DetailAnnotationViewController: UIViewController {
     }
     
     @IBAction func requestButton(_ sender: Any) {
-        // implement this method
+        NotificationSender.sendRequest(to: (businesses?[0].object(forKey: "host") as? String)!, from: "\((User.currentUser?.username)!)")
     }
 }

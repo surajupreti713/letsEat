@@ -35,6 +35,11 @@ class NotificationSender: NSObject {
     }
     
     
+    /*
+    * TODO: Only one invitation can be created per user at one time
+    *       or until the one that is created is taken down or cancled
+    */
+    
     // create an invitation in the disk as an object which will later be queried in the MapView and presented.
     class func createInviation(business: Business, successfull:  @escaping ()->(), failure:  @escaping (Error)->()) {
         let invitation = PFObject(className: "invitation")
@@ -64,8 +69,10 @@ class NotificationSender: NSObject {
     // this function takes in a closure and call then with objectId passed as parameter.
     class func getObjectId(invitingUser: String, success: @escaping (String) -> (), failure: @escaping (Error)->()) {
         print("invitation successfully posted")
-        let query = PFQuery(className: "invitation_by_\((invitingUser))")
+        let query = PFQuery(className: "invitation")
         query.whereKey("requested", equalTo: false)
+        query.whereKey("host", equalTo: invitingUser)
+        query.whereKey("guest", equalTo: "none")
         query.order(byDescending: "createdAt")
         query.limit = 1
         

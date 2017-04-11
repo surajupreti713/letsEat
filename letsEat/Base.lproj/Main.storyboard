@@ -569,6 +569,11 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="EKi-gD-soA">
+                        <barButtonItem key="leftBarButtonItem" title="Guest" id="TIE-pk-M8r">
+                            <connections>
+                                <segue destination="3wh-xW-r8l" kind="show" action="showDetailViewController:sender:" id="enD-U2-R7o"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="LogOut" id="RI7-Ew-CUa">
                             <connections>
                                 <action selector="logoutButton:" destination="rJa-jY-0fP" id="xiT-Fe-9I6"/>
@@ -589,6 +594,49 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="3476" y="1243"/>
+        </scene>
+        <!--Guest View Controller-->
+        <scene sceneID="5HW-QR-oaO">
+            <objects>
+                <viewController id="3wh-xW-r8l" customClass="GuestViewController" customModule="letsEat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Hc2-sc-291"/>
+                        <viewControllerLayoutGuide type="bottom" id="lVD-Ge-ZHZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ozT-dJ-QRb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="NO Guests" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4iv-qZ-qBK">
+                                <rect key="frame" x="139" y="157" width="96" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                <color key="textColor" red="1" green="0.61958231441795375" blue="0.56061959610519141" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" alpha="0.45000000000000001" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ix4-Uc-Mh8">
+                                <rect key="frame" x="16" y="302" width="343" height="49"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.6195823144" blue="0.56061959610000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="31"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" red="0.025974499589233192" green="0.46115561548223349" blue="0.28779359931565934" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleShadowColor" red="0.58668173408702429" green="0.66045368020304562" blue="0.50875530541401104" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="DoneButtonPressed:" destination="3wh-xW-r8l" eventType="touchUpInside" id="cTP-Zk-bL6"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="guestLabel" destination="4iv-qZ-qBK" id="NDM-UX-3nd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Ed-QQ-zxh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4245.6000000000004" y="1242.7286356821589"/>
         </scene>
         <!--Restaurants-->
         <scene sceneID="aPZ-2h-RZK">
