@@ -36,6 +36,7 @@ class mapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             let region = MKCoordinateRegion(center: mapCenter, span: mapSpan)
             // Set animated property to true to animate the transition to the region
             mapView.setRegion(region, animated: true)
+            getInvitationsFromDisk()
     }
     
     // this method gets all the invitation from the database created by, NotificationSender.createInvitation.
@@ -72,6 +73,20 @@ class mapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
     }
     
+    func queryInvitaiton(success: @escaping ([PFObject])->(), failure: @escaping (Error)->()) {
+        let queryInvitation = PFQuery(className: "invitation")
+        queryInvitation.whereKey("requested", equalTo: false)
+        queryInvitation.whereKey("host", equalTo: "\((eventHost)!)")
+        queryInvitation.findObjectsInBackground { (queryRespond: [PFObject]?, error: Error?) in
+            if let queryRespond = queryRespond {
+                success(queryRespond)
+            }
+            else {
+                failure(error!)
+            }
+        }
+    }
+    
     
     // this function is called after the annotation is tapped
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
@@ -79,17 +94,21 @@ class mapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             if let host = annotation.title! {
                 print("Tapped \(host) pin")
                 self.eventHost = host
-                performSegue(withIdentifier: "detailsOfInvitaionFromAnnotation", sender: nil)
+                queryInvitaiton(success: { (queryArray: [PFObject]) in
+                    self.invitationArray = queryArray
+                    self.performSegue(withIdentifier: "detailsOfInvitaionFromAnnotation", sender: nil)
+                }, failure: { (error: Error) in
+                    print("error while querying for invitaion event for details: \(error.localizedDescription)")
+                })
             }
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let viewController = segue.destination as! DetailAnnotationViewController
-        viewController.host = self.eventHost
+        viewController.businesses = invitationArray
     }
-    
-    
+
     
 //    func initLocation() {
 //        self.locationManager.requestAlwaysAuthorization()

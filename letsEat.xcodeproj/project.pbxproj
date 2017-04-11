@@ -27,6 +27,7 @@
 		DC7808741E8C18650005020A /* mapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7808731E8C18650005020A /* mapViewController.swift */; };
 		DC7808761E8C187B0005020A /* profileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7808751E8C187B0005020A /* profileViewController.swift */; };
 		DC7808791E8C22A00005020A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC7808781E8C22A00005020A /* User.swift */; };
+		DC998FBF1E9C6742001F2EB5 /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC998FBE1E9C6742001F2EB5 /* Query.swift */; };
 		DCC84F781E8C879E0032BC64 /* signUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC84F771E8C879E0032BC64 /* signUpViewController.swift */; };
 		DCD5F1D51E982C7D0012CC0F /* SaveProfilePictureToDisk.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD5F1D41E982C7D0012CC0F /* SaveProfilePictureToDisk.swift */; };
 /* End PBXBuildFile section */
@@ -55,6 +56,7 @@
 		DC7808731E8C18650005020A /* mapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mapViewController.swift; sourceTree = "<group>"; };
 		DC7808751E8C187B0005020A /* profileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = profileViewController.swift; sourceTree = "<group>"; };
 		DC7808781E8C22A00005020A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DC998FBE1E9C6742001F2EB5 /* Query.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Query.swift; sourceTree = "<group>"; };
 		DCC84F771E8C879E0032BC64 /* signUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = signUpViewController.swift; sourceTree = "<group>"; };
 		DCD5F1D41E982C7D0012CC0F /* SaveProfilePictureToDisk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveProfilePictureToDisk.swift; sourceTree = "<group>"; };
 		DD5065773162F91F519BD146 /* Pods_letsEat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_letsEat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +133,7 @@
 		DC03E4581E68D28D00CEE8BA /* letsEat */ = {
 			isa = PBXGroup;
 			children = (
+				DC998FBD1E9C671E001F2EB5 /* Helper */,
 				6162FCF71E93552000351506 /* Views */,
 				6162FCF21E9337E200351506 /* API */,
 				DC7808771E8C22720005020A /* Model */,
@@ -168,6 +171,14 @@
 				61C0A5FC1E9ADBEA00CE7817 /* Restaurant.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		DC998FBD1E9C671E001F2EB5 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				DC998FBE1E9C6742001F2EB5 /* Query.swift */,
+			);
+			name = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,6 +319,7 @@
 				DC3C1BC31E9C225900DF4D24 /* DetailAnnotationViewController.swift in Sources */,
 				DC7808791E8C22A00005020A /* User.swift in Sources */,
 				DC3C1BBD1E9B199000DF4D24 /* RestaurantDetailsViewController.swift in Sources */,
+				DC998FBF1E9C6742001F2EB5 /* Query.swift in Sources */,
 				DCD5F1D51E982C7D0012CC0F /* SaveProfilePictureToDisk.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

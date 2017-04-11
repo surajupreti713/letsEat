@@ -48,6 +48,7 @@ class NotificationSender: NSObject {
         invitation["restaurantImage"] = "\((business.imageURL)!)"
         invitation["categories"] = "\((business.categories)!)"
         invitation["ratingImage"] = "\((business.ratingImageURL)!)"
+        invitation["reviews"] = "\((business.reviewCount)!)"
         invitation.saveInBackground { (success :Bool, error: Error?) in
             if let error = error {
                 print("error creating invitation: \(error.localizedDescription)")
