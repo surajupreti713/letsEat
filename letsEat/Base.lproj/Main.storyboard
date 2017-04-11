@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -231,7 +232,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MsO-Mv-IEv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3622" y="466"/>
+            <point key="canvasLocation" x="4560.8000000000002" y="465.51724137931041"/>
         </scene>
         <!--Detail Annotation View Controller-->
         <scene sceneID="gYe-2p-PtL">
@@ -311,7 +312,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Qa-vV-pjg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4428" y="465.51724137931041"/>
+            <point key="canvasLocation" x="5367.1999999999998" y="465.51724137931041"/>
         </scene>
         <!--Restaurants-->
         <scene sceneID="qbF-OB-w1O">
@@ -500,7 +501,7 @@
                     <connections>
                         <segue destination="N9P-uO-Mum" kind="relationship" relationship="viewControllers" id="q7J-6j-9Nf"/>
                         <segue destination="BIP-5B-Tri" kind="relationship" relationship="viewControllers" id="AUD-JN-qeg"/>
-                        <segue destination="6Yq-Au-NxJ" kind="relationship" relationship="viewControllers" id="0mf-Ut-lvo"/>
+                        <segue destination="wkf-Cs-q1U" kind="relationship" relationship="viewControllers" id="Hz6-Oj-AfR"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NFV-4b-wXj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -525,21 +526,69 @@
             </objects>
             <point key="canvasLocation" x="9" y="139"/>
         </scene>
-        <!--Profile-->
-        <scene sceneID="80Y-DE-4v6">
+        <!--Profile View Controller-->
+        <scene sceneID="0A9-3b-IBW">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6Yq-Au-NxJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" selectedImage="Profile" id="DSY-km-eTn"/>
+                <viewController id="rJa-jY-0fP" customClass="profileViewController" customModule="letsEat" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DV0-nW-xpt"/>
+                        <viewControllerLayoutGuide type="bottom" id="Cl6-v7-XHU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AXw-3s-AEK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NNV-EC-I6p">
+                                <rect key="frame" x="115" y="137" width="144" height="128"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="77e-7h-GOU"/>
+                                    <constraint firstAttribute="width" constant="144" id="Ld5-Gl-SXX"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="sG4-Pr-Fy1" appends="YES" id="g2t-yg-tzi"/>
+                                </connections>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ba-Gl-JbN">
+                                <rect key="frame" x="165.5" y="323" width="45" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NNV-EC-I6p" firstAttribute="leading" secondItem="AXw-3s-AEK" secondAttribute="leadingMargin" constant="99" id="FXs-GF-hpK"/>
+                            <constraint firstItem="8Ba-Gl-JbN" firstAttribute="leading" relation="lessThanOrEqual" secondItem="AXw-3s-AEK" secondAttribute="leadingMargin" constant="150.5" id="MbU-CF-QSk"/>
+                            <constraint firstAttribute="trailingMargin" relation="lessThanOrEqual" secondItem="8Ba-Gl-JbN" secondAttribute="trailing" constant="150.5" id="NjF-Xr-GTj"/>
+                            <constraint firstItem="8Ba-Gl-JbN" firstAttribute="centerX" secondItem="AXw-3s-AEK" secondAttribute="centerX" id="P5x-Ey-vHy"/>
+                            <constraint firstItem="8Ba-Gl-JbN" firstAttribute="top" secondItem="NNV-EC-I6p" secondAttribute="bottom" constant="58" id="fyh-nq-RWA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NNV-EC-I6p" secondAttribute="trailing" constant="100" id="hOb-dQ-pff"/>
+                            <constraint firstItem="NNV-EC-I6p" firstAttribute="top" secondItem="DV0-nW-xpt" secondAttribute="bottom" constant="73" id="hb6-Vz-I3a"/>
+                        </constraints>
+                    </view>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BwG-g1-kow">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="REw-w6-2k5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    <navigationItem key="navigationItem" id="EKi-gD-soA">
+                        <barButtonItem key="rightBarButtonItem" title="LogOut" id="RI7-Ew-CUa">
+                            <connections>
+                                <action selector="logoutButton:" destination="rJa-jY-0fP" id="xiT-Fe-9I6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="nameLabel" destination="8Ba-Gl-JbN" id="tHG-vZ-aPS"/>
+                        <outlet property="profileImageLabel" destination="NNV-EC-I6p" id="BI0-he-dnX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hVj-PV-dhm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="sG4-Pr-Fy1">
+                    <connections>
+                        <action selector="profilePic:" destination="rJa-jY-0fP" id="gj8-e0-bWc"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1620" y="1039"/>
+            <point key="canvasLocation" x="3476" y="1243"/>
         </scene>
         <!--Restaurants-->
         <scene sceneID="aPZ-2h-RZK">
@@ -595,7 +644,26 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RLC-2x-jPX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2864.8000000000002" y="466.41679160419795"/>
+            <point key="canvasLocation" x="3804" y="466.41679160419795"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="97a-rQ-3Ag">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wkf-Cs-q1U" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" selectedImage="Profile" id="joK-AY-EEX"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="n8s-n9-eNH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rJa-jY-0fP" kind="relationship" relationship="rootViewController" id="Zdy-ZB-Fjp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i8e-T7-FdM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2509.5999999999999" y="1038.5307346326838"/>
         </scene>
     </scenes>
     <resources>

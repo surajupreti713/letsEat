@@ -66,7 +66,18 @@ class profileViewController: UIViewController, UIImagePickerControllerDelegate, 
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func logoutButtonPressed(_ sender: Any) {
+    
+    
+    @IBAction func logoutButton(_ sender: Any) {
+        let alertCotroller = UIAlertController(title: nil, message: "Are you sure you want to logout?", preferredStyle: .actionSheet)
+        alertCotroller.addAction(UIAlertAction(title: "logout", style: .default, handler: { (_) in
+            self.logoutUser()
+        }))
+        alertCotroller.addAction(UIAlertAction(title: "cancel", style: .cancel, handler: nil))
+        present(alertCotroller, animated: true, completion: nil)
+    }
+    
+     func logoutUser() {
         PFUser.logOutInBackground { (logoutError: Error?) in
             if logoutError == nil {
                 User.currentUser = nil
@@ -80,9 +91,11 @@ class profileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     
     @IBAction func profilePictureTapped(_ sender: UITapGestureRecognizer) {
-        
 //        NotificationSender.send(to: (User.currentUser?.username)!, from: (User.currentUser?.username)!)
-        
+    }
+    
+    @IBAction func profilePic(_ sender: UITapGestureRecognizer) {
+        print("Profile picture tapped")
         let alertViewController = UIAlertController(title: "Choose Image Source", message: nil, preferredStyle: .actionSheet)
         alertViewController.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (_) in
             self.openCamera()
@@ -92,7 +105,10 @@ class profileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }))
         alertViewController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(alertViewController, animated: true, completion: nil)
+
     }
+    
+
     
     func openCamera() {
         if (UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera)) {
@@ -129,8 +145,8 @@ class profileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
-    @IBAction func sendRequest(_ sender: Any) {
-        NotificationSender.sendRequest(to: (User.currentUser?.username)!, from: (User.currentUser?.username)!)
-    }
+//    @IBAction func sendRequest(_ sender: Any) {
+//        NotificationSender.sendRequest(to: (User.currentUser?.username)!, from: (User.currentUser?.username)!)
+//    }
     
 }
