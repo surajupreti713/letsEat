@@ -16,10 +16,8 @@ Time spent: **X** hours spent in total
 - [x] user can search resturant 
 - [x] User can send invitation with the seleted resturent 
 - [x] All the users in a certain radiu will get invitation via notification
-- [ ] The invited user can accept the invitation to be the guest
-- [ ] The host user can select the guest from among the ones who have accepted the invitation
-- [ ] Host can select more than one user.
-- [ ] Conformed invitation (Notification) will be sent with the detail of the event.
+- [x] The invited user can accept the invitation to be the guest
+- [x] The host user can see the guest
 
 ## Optional Stories
 - [ ] Host can rate the guest and guest can review the host.
