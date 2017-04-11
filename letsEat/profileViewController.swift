@@ -29,6 +29,7 @@ class profileViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         let tempProfileImage: UIImage = profileImage ?? UIImage(named: "test_profile_pic")!
         profileImageLabel.image = tempProfileImage
+        queryGuest()
     }
     
     
@@ -144,5 +145,48 @@ class profileViewController: UIViewController, UIImagePickerControllerDelegate, 
             self.present(alertViewController, animated: true, completion: nil)
         }
     }
+    
+    func queryGuest() {
+            let query = PFQuery(className: "invitation")
+            query.whereKey("requested", equalTo: true)
+            query.whereKey("host", equalTo: "\((User.currentUser?.username)!)")
+            query.whereKey("guest", notEqualTo: "none")
+            query.order(byDescending: "createdAt")
+            query.limit = 1
+            
+            query.findObjectsInBackground(block: { (respondArray: [PFObject]?, error: Error?) in
+                if let respondArray = respondArray {
+                    self.guest = respondArray[0].object(forKey: "guest") as? String
+                }
+                else {
+                    print("error while loading invitaion data: \((error?.localizedDescription)!)")
+                }
+            })
+        }
+    
+    var guest: String?
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let guestVC = segue.destination as! GuestViewController
+        guestVC.guest = guest
+    }
+//        if guestVC.guest == nil {
+//            let query = PFQuery(className: "invitation")
+//            query.whereKey("requested", equalTo: true)
+//            query.whereKey("host", equalTo: "\((User.currentUser?.username)!)")
+//            query.whereKey("guest", notEqualTo: "none")
+//            query.order(byDescending: "createdAt")
+//            query.limit = 1
+//            
+//            query.findObjectsInBackground(block: { (respondArray: [PFObject]?, error: Error?) in
+//                if let respondArray = respondArray {
+//                    guestVC.guest = respondArray[0].object(forKey: "guest") as? String
+//                    //                self.guestLabel.text = self.guest
+//                }
+//                else {
+//                    print("error while loading invitaion data: \((error?.localizedDescription)!)")
+//                }
+//            })
+//        }
+    
     
 }
