@@ -31,7 +31,7 @@ class DetailAnnotationViewController: UIViewController {
         category.text = business?.object(forKey: "categories") as? String
         ratingImage.setImageWith(URL(string: business?.object(forKey: "ratingImage") as! String)!)
         reviews.text = business?.object(forKey: "reviews") as? String
-        hostLabel.text = business?.object(forKey: "host") as? String
+        hostLabel.text = String("Organized by: \((business?.object(forKey: "host") as? String)!)")
     }
 
     override func didReceiveMemoryWarning() {
